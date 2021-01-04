@@ -1,0 +1,194 @@
+
+
+    <!DOCTYPE html>
+    <html lang='en'>
+    
+    <head>
+      <meta charset='UTF-8'>
+      <title>Petrol Planner: Result</title>
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+      <link rel="stylesheet" href="styles2.css">
+    </head>
+    <body>
+    
+        <div class="navbar">
+        <a href="http://127.0.0.1:5000/">Home</a>
+        <a href="http://127.0.0.1:5000/reg">PP</a>
+        
+        
+        <div class="dropdown">
+          <button class="dropbtn">Plots
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="http://127.0.0.1:5000/unieda">Univariate</a>
+            <a href="http://127.0.0.1:5000/bieda">Bivariate</a>
+            <a href="http://127.0.0.1:5000/lags">Forecast</a>
+          </div>
+        </div>
+        <a href="http://127.0.0.1:5000/about">About</a>
+        <diV class="head">
+          <b>PETROL PLANNER</b>
+        </diV>
+        
+      </div>
+      
+    </body>
+  
+  
+  <div class="bg">
+    <div class="caption">
+      <span id="ans" class="border"></span><br>
+    </div>
+  </div>
+
+  <script>
+    var err = "{{msg}}" ;
+
+    var result = {{res}};
+    var elt = document.getElementById("ans");
+
+    if (err == "nil"){
+    elt.innerHTML = "Fill <strong>" + result[1] +" L</strong> every <strong>"+ result[0] + " day(s).</strong>"+"<br>Estimated cost: Rs. {{price}} (approx)";}
+
+    else {
+        elt.innerHTML = "The refill budget amount given is insufficient.<br>"+"Kindly update your details."
+    }
+
+</script>
+
+</body>
+
+<style>
+
+body, html {
+  height: 100%;
+  background-color: #000;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("static/station.jpg");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .caption {
+  position: absolute;
+  left: 0;
+  top: 53.4%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      font-family: Arial;
+    }
+    
+    /* Links inside the navbar */
+    .navbar {
+          overflow: hidden;
+          background-color: #333;
+          font-family: Arial;
+        }
+       .head{
+        
+          font-size: 25px;
+          color: white;
+          margin-left:30%;
+          margin-right: 29%;
+          
+          padding: 14px 16px;
+          text-decoration: none;
+          text-align: center;
+          
+          
+       }
+        /* Links inside the navbar */
+        .navbar a {
+          float: left;
+          font-size: 20px;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        /* The dropdown container */
+        .dropdown {
+          float: left;
+          overflow: hidden;
+        }
+        
+        /* Dropdown button */
+        .dropdown .dropbtn {
+          font-size: 20px;
+          border: none;
+          outline: none;
+          color: white;
+          padding: 14px 16px;
+          background-color: inherit;
+          font-family: inherit; /* Important for vertical align on mobile phones */
+          margin: 0; /* Important for vertical align on mobile phones */
+        }
+    
+    /* Add a red background color to navbar links on hover */
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      background-color:none;
+    }
+    
+    /* Dropdown content (hidden by default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+    
+    /* Add a grey background color to dropdown links on hover */
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+    
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+

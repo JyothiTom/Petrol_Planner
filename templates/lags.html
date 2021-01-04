@@ -1,0 +1,140 @@
+
+    <!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Petrol Planner: EDA</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+
+    <div class="navbar">
+    <a href="http://127.0.0.1:5000/">Home</a>
+    <a href="http://127.0.0.1:5000/reg">PP</a>
+    
+    <div class="dropdown">
+      <button class="dropbtn">EDA
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="http://127.0.0.1:5000/unieda">Univariate</a>
+        <a href="http://127.0.0.1:5000/bieda">Bivariate</a>
+        <a href="http://127.0.0.1:5000/lags">Forecast</a>
+      </div>
+    </div>
+    <a href="http://127.0.0.1:5000/about">About</a>
+  </div>
+  <br><br>
+</body>
+
+    <body>
+        
+    <div class="box">
+        <img src="static/lag3.png" > <!-- changed image name (Download from static in drive-->
+    </div>
+    <br>
+        
+    <div class="box large">
+        <img src="static/lag5.png" > <!-- changed image name (Download from static in drive-->
+      </div>
+    </div>
+    <br>
+        
+    <div class="box small">
+        <img src="static/lag_7.png" > <!-- changed image name (Download from static in drive-->
+      </div>
+    </div>
+
+    <style>
+        .box img{
+            width: 70%;
+            display: block;
+    margin-left: auto;
+    margin-right: auto
+        }
+         /* Navbar container */
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+  }
+  
+  /* Links inside the navbar */
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* The dropdown container */
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  
+  /* Add a red background color to navbar links on hover */
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color:none;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  body {
+  background-image: url("static/white2.jpg");
+  background-color: black;
+  background-size: auto ;
+  max-width:100%;
+  height:auto;
+
+  
+}
+    </style>
+    
+
+    </body>
+

@@ -1,0 +1,327 @@
+
+    <!DOCTYPE html>
+    <html lang='en'>
+    
+    <head>
+      <meta charset='UTF-8'>
+      <title>Petrol Planner: Forecasting Plots</title>
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+      <link rel="stylesheet" href="styles2.css">
+    </head>
+    <body>
+    
+        <div class="navbar">
+        <a href="http://127.0.0.1:5000/">Home</a>
+        <a href="http://127.0.0.1:5000/reg">PP</a>
+        
+        
+        <div class="dropdown">
+          <button class="dropbtn">Plots
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="http://127.0.0.1:5000/unieda">Univariate</a>
+            <a href="http://127.0.0.1:5000/bieda">Bivariate</a>
+            <a href="http://127.0.0.1:5000/lags">Forecast</a>
+          </div>
+        </div>
+        <a href="http://127.0.0.1:5000/about">About</a>
+        <diV class="head">
+          <b>PETROL PLANNER</b>
+        </diV>
+        
+      </div>
+      
+    </body>
+<div class="chart-container" style="position: relative; height:40vh; width:95vw"> 
+    <br>
+    <canvas id='lag3' width="7"></canvas>
+    <br><br><br>
+    <canvas id='lag5' width="7"></canvas>
+    <br><br><br>
+    <canvas id='lag7' width="7"></canvas>
+    <br>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"> </script>
+
+    <script>
+    var ctx = document.getElementById('lag3').getContext('2d');
+        
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+        // The data for our dataset
+        data: {
+            labels:{{x3 | tojson}},
+
+            datasets: [{
+                label: 'Actual Prices',
+                fill: false,
+                bezierCurve: true,
+                showLine: true,                
+                backgroundColor: 'rgba(0,0,255,1.0)',
+                borderColor: 'rgba(0,0,255,1.0)',
+                bezierCurve: true,
+                showLine: true,
+
+                data: {{y_act3 | tojson}}              
+            } ,
+            {
+                label: 'Predicted Prices',      
+                fill: false,
+                bezierCurve: true,
+                showLine: true,
+                backgroundColor: 'rgba(255,0,0,1.0)',
+                borderColor: 'rgba(255,0,0,1.0)',
+
+
+                data: {{y_pred3 | tojson}}
+            }
+            ]
+
+        },
+    
+        // Configuration options go here
+        options: {
+            responsive: true, 
+            title: {
+                display: true,
+                fontSize: 20,
+                text: 'Petrol prices using 3 lags'
+        }, scales:{xAxes:[{
+                    ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 33.9,
+                    maxRotation: 90,
+                    minRotation: 90
+                    },
+                    scaleLabel:
+                        {display: true, fontSize:14, labelString: "Dates"}
+                        }],
+                    yAxes:[{scaleLabel:
+                        {display: true, fontSize:14, labelString: "Petrol Price (in Rs.)"}}]
+                    }
+        }
+        }
+        );
+    </script>
+
+    <!-- LAG 5 -->
+
+    <script>
+        var ctx = document.getElementById('lag5').getContext('2d');
+            
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+            // The data for our dataset
+            data: {
+                labels:{{x5 | tojson}},
+    
+                datasets: [{
+                    label: 'Actual Prices',
+                    fill: false,
+                    bezierCurve: true,
+                    showLine: true,
+                    backgroundColor: 'rgba(0,0,255,1.0)',
+                borderColor: 'rgba(0,0,255,1.0)',
+
+                    data: {{y_act5 | tojson}}   
+                } ,
+                {
+                    label: 'Predicted Prices',      
+                    fill: false,
+                    bezierCurve: true,
+                    showLine: true,
+                    backgroundColor: 'rgba(255,0,0,1.0)',
+                    borderColor: 'rgba(255,0,0,1.0)',
+
+                    data: {{y_pred5 | tojson}}
+                }
+                ]   
+            },
+        
+            // Configuration options go here
+            options: {
+                responsive: true, 
+                title: {
+                    display: true,
+                    fontSize: 20,
+                    text: 'Petrol Prices using 5 lags'
+            }, scales:{xAxes:[{
+                        ticks: {
+                        autoSkip: true,
+                        maxTicksLimit: 33.9,
+                        maxRotation: 90,
+                        minRotation: 90
+                        },
+                        scaleLabel:
+                            {display: true, fontSize:14, labelString: "Dates"}
+                            }],
+                        yAxes:[{scaleLabel:
+                            {display: true, fontSize:14, labelString: "Petrol Price (in Rs.)"}}]
+                        }
+            }
+            }
+            );
+        </script>
+
+<!-- LAG 7 -->
+<script>
+    var ctx = document.getElementById('lag7').getContext('2d');
+        
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+        // The data for our dataset
+        data: {
+            labels:{{x7 | tojson}},
+
+            datasets: [{
+                label: 'Actual Prices',
+                fill: false,
+                bezierCurve: true,
+                showLine: true,
+                backgroundColor: 'rgba(0,0,255,1.0)',
+                borderColor: 'rgba(0,0,255,1.0)',
+
+                data: {{y_act7 | tojson}}
+            } ,
+            {
+                label: 'Predicted Prices',      
+                fill: false,
+                bezierCurve: true,
+                showLine: true,              
+                backgroundColor: 'rgba(255,0,0,1.0)',
+                borderColor: 'rgba(255,0,0,1.0)',
+
+                data: {{y_pred7 | tojson}}
+            }
+            ]
+        },
+    
+        // Configuration options go here
+        options: {
+            responsive: true, 
+            title: {
+                display: true,
+                fontSize: 20,
+                text: 'Petrol Prices using 7 lags'
+        }, scales:{xAxes:[{
+                    ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 33.9,
+                    maxRotation: 90,
+                    minRotation: 90
+                    },
+                    scaleLabel:
+                        {display: true, fontSize:14, labelString: "Dates"}
+                        }],
+
+                    yAxes:[{scaleLabel:
+                        {display: true, fontSize:14, labelString: "Petrol Price (in Rs.)"}}]
+                    }
+        }
+        }
+        );
+    </script>
+<style>
+    /* Navbar container */
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+  }
+  
+  /* Links inside the navbar */
+  .navbar {
+          overflow: hidden;
+          background-color: #333;
+          font-family: Arial;
+        }
+       .head{
+        
+          font-size: 25px;
+          color: white;
+          margin-left:30%;
+          margin-right: 29%;
+          
+          padding: 14px 16px;
+          text-decoration: none;
+          text-align: center;
+          
+          
+       }
+        /* Links inside the navbar */
+        .navbar a {
+          float: left;
+          font-size: 20px;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        /* The dropdown container */
+        .dropdown {
+          float: left;
+          overflow: hidden;
+        }
+        
+        /* Dropdown button */
+        .dropdown .dropbtn {
+          font-size: 20px;
+          border: none;
+          outline: none;
+          color: white;
+          padding: 14px 16px;
+          background-color: inherit;
+          font-family: inherit; /* Important for vertical align on mobile phones */
+          margin: 0; /* Important for vertical align on mobile phones */
+        }
+  
+  /* Add a red background color to navbar links on hover */
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color:none;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  body {
+    background-image: url("static/white2.jpg");
+    background-color: black;
+    background-size: auto ;
+  }
+</style>
+    </div>
+</body>
+
+
